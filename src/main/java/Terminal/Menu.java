@@ -62,18 +62,31 @@ public class Menu {
             }
             else if(opcao == 2)
             {
-                while(opcao != -2)
+                // adicionei uma opção de pegar outro input, do jeito que tava ele loopava pra sempre no relatorioCarrinho
+                int opcaoCompra = 0;
+                while(opcaoCompra != -2)
                 {
-                    if(opcao == 1)
-                    {
+                    opcaoCompra = Input.getMenuClienteCompra();
+                    if(opcaoCompra == 1)
+                    { // adicionar produto
                         String input = Input.getIdentProd();
                         Produto prod = banco.getProduto(input);
-                        cliente.addCarrinho(prod);
+                        if( prod != null )
+                        {
+                            cliente.addCarrinho(prod);
+                        }
                     }
-                    else if(opcao == 2)
-                    {
+                    
+                    if(opcaoCompra == 2)
+                    { // ver produtos
                         cliente.relatCarrinho();
                     }
+                    
+                    if(opcaoCompra == 3)
+                    { // finalizar compra
+                        cliente.finalizarCompra();
+                    }
+                    
                     else
                     {
                         Output.opInvalida();

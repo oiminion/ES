@@ -35,11 +35,11 @@ public class Produto{
     
     public String getRelat()
     {
-        String result = "Nome: " + Nome;
+        String result = "\nNome: " + Nome;
         result += "\nPreco: " + Float.toString(Preco);
         result += "\nQuantidade: " + Integer.toString(Quantidade);
         result += "\nCUP: " + CUP;
-        result += "\nEspecificação: " + Especificacao;
+        result += "\nEspecificação: " + Especificacao + "\n";
         return result;
     }
     

@@ -3,10 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package primeiro.Usuarios;
+
 import Terminal.Output;
 import java.util.ArrayList;
 import primeiro.Banco.Banco;
 import primeiro.Objetos.Produto;
+import primeiro.Objetos.Pagamento;
 /**
  *
  * @author Arthur
@@ -14,6 +16,7 @@ import primeiro.Objetos.Produto;
 public class Cliente {
     private static Cliente instance;
     protected Banco banco;
+    private Pagamento pagamento;
     
     protected ArrayList<Produto> Carrinho;
     
@@ -58,5 +61,24 @@ public class Cliente {
             Output.relatProduto(p);
         }
         System.out.println("Valor total: " + Float.toString(total));
+    }
+    
+    public void finalizarCompra()
+    {
+        
+        float total = 0;
+        for(Produto p : Carrinho)
+        {
+            total += p.getValor();
+            Output.relatProduto(p);
+        }
+        System.out.println("Valor total a pagar: " + Float.toString(total));
+        
+        pagamento = new Pagamento(total);
+        
+        while( !pagamento.confirmado() ){
+            System.out.println("Pagamento inválido, por favor pague novamente");
+        }
+        System.out.println("Pagado com sucesso!");
     }
 }

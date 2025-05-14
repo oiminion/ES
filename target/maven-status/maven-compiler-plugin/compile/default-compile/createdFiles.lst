@@ -4,6 +4,7 @@ primeiro\Usuarios\Gerente.class
 Terminal\Input.class
 primeiro\Banco\Banco.class
 Terminal\Menu.class
+primeiro\Objetos\Pagamento.class
 primeiro\Primeiro.class
 primeiro\Usuarios\Cliente.class
 primeiro\Usuarios\Funcionario.class

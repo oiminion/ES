@@ -113,7 +113,7 @@ public class Input {
     
     public static int getQuantidade()
     {
-        System.out.println("Digite a especificação do produto:");
+        System.out.println("Digite a quantidade do produto:");
         return Integer.parseInt(getString());
     }
     
@@ -135,6 +135,18 @@ public class Input {
                            2 : comprar produtos
                            -1: logout""");
         return Integer.parseInt(getString());   
+    }
+    
+    public static int getMenuClienteCompra()
+    {
+         System.out.println("\nDigite a opcao desejada:");
+        System.out.println("""
+                           1 : adicionar produto
+                           2 : ver produtos
+                           3 : finalizar compra
+                           -2: sair""");
+        return Integer.parseInt(getString());   
+             
     }
     
     public static int getMenuFuncionario()
@@ -159,5 +171,11 @@ public class Input {
                            5 : buscar produto
                            -1: logout""");
         return Integer.parseInt(getString());   
+    }
+    
+    public static int getPagamento()
+    {
+        System.out.println("Insira o valor que se pagou: ");
+        return Integer.parseInt(getString()); 
     }
 }

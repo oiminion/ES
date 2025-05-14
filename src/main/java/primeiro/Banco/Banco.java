@@ -55,6 +55,7 @@ public class Banco {
                 return prod;
             }
         }
+        System.err.println("Produto nao encontrado\n");
         return null;
     }
     
