@@ -15,7 +15,6 @@ import Conceitos.Gerente;
 public class ControladorCentral {
     ControladorCliente controlador_cliente = new ControladorCliente();
     ControladorFuncionario controlador_funcionario = new ControladorFuncionario();
-    ControladorCliente cliente = new ControladorCliente();
     ControladorGerente controlador_gerente = new ControladorGerente();
     ControladorLogin controlador_login = new ControladorLogin();
     

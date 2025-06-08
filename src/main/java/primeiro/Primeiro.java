@@ -4,11 +4,8 @@
 
 package primeiro;
 
-import Terminal.Input;
 import Terminal.Menu;
-import Terminal.Output;
 import Conceitos.Cliente;
-import java.util.UUID;
 import Catalogo.Banco;
 import Catalogo.FuncionariosCatalogo;
 import Conceitos.Funcionario;

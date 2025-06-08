@@ -26,4 +26,19 @@ public class Output {
     {
         System.out.println(func.getRelat());
     }
+    
+    public static void relatCompra(float total)
+    {
+        System.out.println("Valor total a pagar: " + Float.toString(total));
+    }
+    
+    public static void pagamentoFalha()
+    {
+        System.out.println("Pagamento inválido, por favor pague novamente");
+    }
+    
+    public static void pagamentoCompleto()
+    {
+        System.out.println("Pagado com sucesso!");
+    }
 }

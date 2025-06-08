@@ -8,6 +8,7 @@ import Conceitos.Produto;
 import Terminal.Input;
 import Terminal.Output;
 import Catalogo.ProdutosCatalogo;
+import Conceitos.Carrinho;
 import Conceitos.Cliente;
 
 /**
@@ -42,6 +43,8 @@ public class ControladorCliente {
     public void ClienteCompra(int opcao, Cliente cliente)
     {
         ProdutosCatalogo catalogo = ProdutosCatalogo.getInstance();
+        Carrinho carrinho = new Carrinho();
+        
         if(opcao == 1)
         {
             // adicionar produto
@@ -49,18 +52,19 @@ public class ControladorCliente {
             Produto prod = catalogo.getProduto(input);
             if( prod != null )
             {
-                cliente.addCarrinho(prod);
+                carrinho.addCarrinho(prod);
             }
         }
         if(opcao == 2)
         { // ver produtos
 
-            cliente.relatCarrinho();
+            carrinho.relatCarrinho();
         }
         if(opcao == 3)
         { // finalizar compra
 
-            cliente.finalizarCompra();
+            float total = carrinho.finalizarCompra();
+            Pagamento pagamento = new Pagamento(total);
         }
         else
         {

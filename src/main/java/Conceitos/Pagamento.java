@@ -23,4 +23,9 @@ public class Pagamento {
         
         return valorPagado >= valorTotal;
     }
+    
+    public float getTotal()
+    {
+        return valorTotal;
+    }
 }

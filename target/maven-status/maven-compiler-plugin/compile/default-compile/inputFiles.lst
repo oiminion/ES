@@ -1,9 +1,17 @@
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Catalogo\Banco.java
+E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Catalogo\FuncionariosCatalogo.java
+E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Catalogo\ProdutosCatalogo.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Conceitos\Cliente.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Conceitos\Funcionario.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Conceitos\Gerente.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Conceitos\Pagamento.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Conceitos\Produto.java
+E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Conceitos\Venda.java
+E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Controle\ControladorCentral.java
+E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Controle\ControladorCliente.java
+E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Controle\ControladorFuncionario.java
+E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Controle\ControladorGerente.java
+E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Controle\ControladorLogin.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\primeiro\Primeiro.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Terminal\Input.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Terminal\Menu.java
