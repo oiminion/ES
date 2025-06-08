@@ -4,8 +4,8 @@
  */
 package Terminal;
 
-import primeiro.Objetos.Produto;
-import primeiro.Usuarios.Funcionario;
+import Conceitos.Produto;
+import Conceitos.Funcionario;
 
 /**
  *

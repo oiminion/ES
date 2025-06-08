@@ -2,48 +2,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package primeiro.Banco;
+package Catalogo;
 
-import Terminal.Output;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.UUID;
-import primeiro.Objetos.Produto;
-import primeiro.Usuarios.Funcionario;
+import Conceitos.Produto;
+import Terminal.Output;
 
 /**
  *
  * @author Arthur
  */
-public class Banco {
-    private static Banco instance;
-    private UUID Sessao;
+public class ProdutosCatalogo {
+    private static ProdutosCatalogo instance;
     private ArrayList<Produto> Produtos;
-    private ArrayList<Funcionario> Funcionarios;
 
-    private Banco()
+    private ProdutosCatalogo()
     {
         Produtos = new ArrayList<>();
-        Funcionarios = new ArrayList<>();
     }
 
-    public static Banco getInstance()
+    public static ProdutosCatalogo getInstance()
     {
         if(instance == null)
         {
-            instance = new Banco();
+            instance = new ProdutosCatalogo();
         }
         return instance;
-    }
-    
-    public void mudarSessao()
-    {
-        this.Sessao = UUID.randomUUID();
-    }
-    
-    public UUID getSessao()
-    {
-        return Sessao;
     }
     
     public Produto getProduto(String input)
@@ -56,18 +40,6 @@ public class Banco {
             }
         }
         System.err.println("Produto nao encontrado\n");
-        return null;
-    }
-    
-    public Funcionario getFuncionario(String input)
-    {
-        for(Funcionario func : Funcionarios)
-        {
-            if(func.compare(input))
-            {
-                return func;
-            }
-        }
         return null;
     }
     
@@ -89,18 +61,7 @@ public class Banco {
         }
     }
     
-    public void addFuncionario(String Nome, String CPF, String Email, String Senha, float Salario, ArrayList<String> Categorias)
-    {
-        Funcionario func = new Funcionario(Nome, CPF, Email, Senha, Salario, Categorias);
-        Funcionarios.add(func);
-    }
-    
-    public void addFuncionario(Funcionario func)
-    {
-        Funcionarios.add(func);
-    }
-    
-    public void relatProds()
+    public void relatorioProdutos()
     {
         for(Produto prod : Produtos)
         {

@@ -1,10 +1,10 @@
-primeiro\Objetos\Produto.class
 Terminal\Output.class
-primeiro\Usuarios\Gerente.class
+Conceitos\Pagamento.class
+Conceitos\Funcionario.class
 Terminal\Input.class
-primeiro\Banco\Banco.class
+Conceitos\Cliente.class
+Conceitos\Gerente.class
 Terminal\Menu.class
-primeiro\Objetos\Pagamento.class
 primeiro\Primeiro.class
-primeiro\Usuarios\Cliente.class
-primeiro\Usuarios\Funcionario.class
+Conceitos\Produto.class
+Catalogo\Banco.class
