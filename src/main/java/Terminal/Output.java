@@ -6,6 +6,7 @@ package Terminal;
 
 import Conceitos.Produto;
 import Conceitos.Funcionario;
+import Conceitos.Venda;
 
 /**
  *
@@ -20,6 +21,11 @@ public class Output {
     public static void relatProduto(Produto prod)
     {
         System.out.println(prod.getRelat());
+    }
+    
+    public static void relatVenda(Venda venda)
+    {
+        System.out.println(venda.getRelat());
     }
     
     public static void relatFuncionario(Funcionario func)
@@ -40,5 +46,10 @@ public class Output {
     public static void pagamentoCompleto()
     {
         System.out.println("Pagado com sucesso!");
+    }
+    
+    public static void produtoNaoEncontrado()
+    {
+        System.out.println("Produto nao encontrado\n");
     }
 }

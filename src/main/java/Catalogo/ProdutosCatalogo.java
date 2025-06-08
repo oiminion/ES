@@ -39,7 +39,7 @@ public class ProdutosCatalogo {
                 return prod;
             }
         }
-        System.err.println("Produto nao encontrado\n");
+        Output.produtoNaoEncontrado();
         return null;
     }
     

@@ -6,6 +6,7 @@ package Controle;
 
 import Catalogo.FuncionariosCatalogo;
 import Catalogo.ProdutosCatalogo;
+import Catalogo.VendasCatalogo;
 import Conceitos.Funcionario;
 import Conceitos.Produto;
 import Terminal.Input;
@@ -25,6 +26,8 @@ public class ControladorFuncionario {
     {   
         ProdutosCatalogo catalogo_produto = ProdutosCatalogo.getInstance();
         FuncionariosCatalogo catalogo_funcionario = FuncionariosCatalogo.getInstance();
+        VendasCatalogo catalogo_vendas = VendasCatalogo.getInstance();
+        
         if(opcao == -1)
         {
             
@@ -35,11 +38,15 @@ public class ControladorFuncionario {
         }
         else if(opcao == 2)
         {
+            catalogo_vendas.relatorioVendas();
+        }
+        else if(opcao == 3)
+        {
             String input = Input.getIdentFunc();
             Funcionario func = catalogo_funcionario.getFuncionario(input);
             Output.relatFuncionario(func);
         }
-        else if(opcao == 3)
+        else if(opcao == 4)
         {
             String input = Input.getIdentProd();
             Produto prod = catalogo_produto.getProduto(input);

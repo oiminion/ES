@@ -139,7 +139,7 @@ public class Input {
     
     public static int getMenuClienteCompra()
     {
-         System.out.println("\nDigite a opcao desejada:");
+        System.out.println("\nDigite a opcao desejada:");
         System.out.println("""
                            1 : adicionar produto
                            2 : ver produtos
@@ -154,8 +154,9 @@ public class Input {
         System.out.println("Digite a opcao desejada:");
         System.out.println("""
                            1 : relatorio de produtos
-                           2 : buscar funcionario
-                           3 : buscar produto
+                           2 : relatorio de vendas
+                           3 : buscar funcionario
+                           4 : buscar produto
                            -1: logout""");
         return Integer.parseInt(getString());   
     }

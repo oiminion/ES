@@ -64,4 +64,13 @@ public class Carrinho {
         return total;
     }
     
+    public String getRelat()
+    {
+        String result = "";
+        for(Produto p : conteudo)
+        {
+            result += p.getRelat();
+        }
+        return result;
+    }
 }

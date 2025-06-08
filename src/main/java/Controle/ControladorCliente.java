@@ -10,6 +10,7 @@ import Terminal.Output;
 import Catalogo.ProdutosCatalogo;
 import Conceitos.Carrinho;
 import Conceitos.Cliente;
+import Conceitos.Pagamento;
 
 /**
  *
@@ -65,6 +66,14 @@ public class ControladorCliente {
 
             float total = carrinho.finalizarCompra();
             Pagamento pagamento = new Pagamento(total);
+            
+            while( !pagamento.confirmado() ){
+                Output.pagamentoFalha();
+            }
+            
+            Output.pagamentoCompleto();
+            
+            
         }
         else
         {
