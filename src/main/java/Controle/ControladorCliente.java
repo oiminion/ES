@@ -73,7 +73,7 @@ public class ControladorCliente {
             
             Output.pagamentoCompleto();
             
-            
+            carrinho.comprar();
         }
         else
         {

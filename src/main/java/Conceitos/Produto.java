@@ -33,6 +33,11 @@ public class Produto{
         return (input.equals(Nome) || input.equals(CUP));
     }
     
+    public boolean compare(Produto prod)
+    {
+        return this.Nome.equals(prod.getNome());
+    }
+    
     public String getRelat()
     {
         String result = "\nNome: " + Nome;
@@ -56,6 +61,17 @@ public class Produto{
     public boolean temNoEstoque()
     {
         return (Quantidade >= 1);
+    }
+    
+    public boolean remove(Produto prod)
+    {
+        Quantidade -= prod.getQuantidade();
+        return Quantidade == 0;
+    }
+    
+    public int getQuantidade()
+    {
+        return this.Quantidade;
     }
     
     public String getNome()

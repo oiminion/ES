@@ -61,6 +61,20 @@ public class ProdutosCatalogo {
         }
     }
     
+    public void removeProduto(Produto produto)
+    {
+        for(Produto prod : Produtos)
+        {
+            if(prod.compare(produto))
+            {
+                if(prod.remove(produto))
+                {
+                    Produtos.remove(prod);
+                }
+            }
+        }
+    }
+    
     public void relatorioProdutos()
     {
         for(Produto prod : Produtos)

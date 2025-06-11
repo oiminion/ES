@@ -4,6 +4,7 @@
  */
 package Conceitos;
 
+import Catalogo.ProdutosCatalogo;
 import Terminal.Output;
 import java.util.ArrayList;
 
@@ -62,6 +63,15 @@ public class Carrinho {
         float total = calcularTotal();
         Output.relatCompra(total);
         return total;
+    }
+    
+    public void comprar()
+    {
+        ProdutosCatalogo catalogo = ProdutosCatalogo.getInstance();
+        for(Produto p : conteudo)
+        {
+            catalogo.removeProduto(p);
+        }
     }
     
     public String getRelat()
