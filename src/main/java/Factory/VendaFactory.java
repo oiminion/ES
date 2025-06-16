@@ -8,6 +8,9 @@ import Catalogo.VendasCatalogo;
 import Conceitos.Carrinho;
 import Conceitos.Pagamento;
 import Conceitos.Venda;
+import java.time.LocalDateTime;
+import java.util.UUID;
+import org.json.JSONArray;
 
 /**
  *
@@ -21,6 +24,19 @@ public class VendaFactory {
     {
         VendasCatalogo catalogo_venda = VendasCatalogo.getInstance();
         Venda novo = new Venda(carrinho, pagamento);
+        catalogo_venda.addVenda(novo);
+        return novo;
+    }
+    
+    public Venda lerVenda(UUID ID, JSONArray carrinho, LocalDateTime data, float pagamento)
+    {
+        PagamentoFactory facPa = new PagamentoFactory();
+        CarrinhoFactory facC = new CarrinhoFactory();
+        VendasCatalogo catalogo_venda = VendasCatalogo.getInstance();
+        
+        Pagamento pag = facPa.lerPagamento(pagamento);
+        Carrinho ca = facC.lerCarrinho(carrinho);
+        Venda novo = new Venda(ID, ca, data, pag);
         catalogo_venda.addVenda(novo);
         return novo;
     }

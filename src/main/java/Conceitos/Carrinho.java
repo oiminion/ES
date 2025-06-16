@@ -54,7 +54,7 @@ public class Carrinho {
             Output.relatProduto(p);
         }
         float total = calcularTotal();
-        System.out.println("Valor total: " + Float.toString(total));
+        Output.valorTotal(total);
     }
     
     public float finalizarCompra()

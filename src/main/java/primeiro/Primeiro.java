@@ -27,17 +27,20 @@ public class Primeiro {
 
     public static void main(String[] args) {
         Banco banco = Banco.getInstance();
+        
+        PersistenciaGeral.lerJSON();
+        
         FuncionariosCatalogo catalogo_funcionarios = FuncionariosCatalogo.getInstance();
         Menu menu = new Menu();
-        
+        /*
         FuncionarioFactory facF = new FuncionarioFactory();
         facF.criarFuncionario("Func", "CPF", "email", "12345", 0, null);
-        
-        GerenteFactory facG = new GerenteFactory();
-        Cliente logado =  (Gerente)facG.criarGerente("Dono", "CPF", "email", "12345", 0, null);
-        
+        */
+        //GerenteFactory facG = new GerenteFactory();
+        Cliente logado =  catalogo_funcionarios.getFuncionario("Dono");
+
         banco.mudarSessao();
-        
+        /*
         ProdutoFactory facP = new ProdutoFactory();
         facP.criarProdutoEstoque("P1", 1, "NomeP1", 10, null);
         
@@ -47,8 +50,7 @@ public class Primeiro {
         
         VendaFactory facV = new VendaFactory();
         facV.criarVenda(c,pa);
-        
-        PersistenciaGeral.escreverJSON();
+        */
         
         boolean parar = false;
         while(!parar)
@@ -77,5 +79,6 @@ public class Primeiro {
                 logado = menu.menuCliente(logado);
             }
         }
+        //PersistenciaGeral.escreverJSON();
     }
 }

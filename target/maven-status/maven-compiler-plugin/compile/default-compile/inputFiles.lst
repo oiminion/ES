@@ -14,8 +14,10 @@ E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Controle\ControladorCliente.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Controle\ControladorFuncionario.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Controle\ControladorGerente.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Controle\ControladorLogin.java
+E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Factory\CarrinhoFactory.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Factory\FuncionarioFactory.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Factory\GerenteFactory.java
+E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Factory\PagamentoFactory.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Factory\ProdutoFactory.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Factory\VendaFactory.java
 E:\Unesp\ES1\Projeto\Primeiro\src\main\java\Persistencia\FuncionariosPersistencia.java

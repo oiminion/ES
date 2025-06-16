@@ -6,7 +6,9 @@ package Factory;
 
 import Catalogo.FuncionariosCatalogo;
 import Conceitos.Funcionario;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  *
@@ -20,6 +22,14 @@ public class FuncionarioFactory {
     {
         FuncionariosCatalogo catalogo_funcionario = FuncionariosCatalogo.getInstance();
         Funcionario novo = new Funcionario(Nome, CPF, Email, Senha, Salario, Categorias);
+        catalogo_funcionario.addFuncionario(novo);
+        return novo;
+    }
+    
+    public Funcionario lerFuncionario(String Nome, String CPF, UUID ID, String Email, String Senha, float Salario, LocalDate DataEmpregacao, ArrayList<String> Categorias)
+    {
+        FuncionariosCatalogo catalogo_funcionario = FuncionariosCatalogo.getInstance();
+        Funcionario novo = new Funcionario(Nome, CPF, ID, Email, Senha, Salario, DataEmpregacao, Categorias);
         catalogo_funcionario.addFuncionario(novo);
         return novo;
     }

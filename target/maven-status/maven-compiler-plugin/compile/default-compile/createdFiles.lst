@@ -1,7 +1,9 @@
 Controle\ControladorCentral.class
 Conceitos\Funcionario.class
 Terminal\Input.class
+Factory\CarrinhoFactory.class
 Controle\ControladorFuncionario.class
+Factory\PagamentoFactory.class
 Persistencia\ProdutosPersistencia.class
 Catalogo\FuncionariosCatalogo.class
 Controle\ControladorCliente.class

@@ -4,6 +4,9 @@
  */
 package Persistencia;
 
+import Factory.GerenteFactory;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import org.json.JSONObject;
@@ -20,19 +23,39 @@ public class PersistenciaGeral {
         resultado += VendasPersistencia.getVendasJSON();
         resultado += "}";
         
-        System.out.println("\n\n\n\n\n" + resultado + "\n\n\n\n\n");
+        JSONObject ojt = new JSONObject(resultado);
         
-        JSONObject t = new JSONObject(resultado);
-        
-        System.out.println(t.toString(5));
-        
-        /*
         try (FileWriter file = new FileWriter("Dados.json")) {
-            file.write(t.toString(5));
+            file.write(ojt.toString());
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        */
+    }
+    
+    public static void lerJSON()
+    {
+        try (FileReader fileReader = new FileReader("Dados.json");
+            
+            BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+            String resultado = bufferedReader.readLine();
+            
+            JSONObject ojt = new JSONObject(resultado);
+            
+            if(ojt.isEmpty())
+            {
+                GerenteFactory facG = new GerenteFactory();//WIP
+                facG.criarGerente("Dono", "", "", "abc123", 0, null);
+            }
+            else
+            {
+                FuncionariosPersistencia.getFuncionariosCatalogo(ojt.getJSONObject("FuncionariosCatalogo"));
+                ProdutosPersistencia.getProdutosCatalogo(ojt.getJSONArray("Produtos"));
+                VendasPersistencia.getVendasCatalogo(ojt.getJSONArray("Vendas"));
+            }
+            
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
     }
 }

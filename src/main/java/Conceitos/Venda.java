@@ -23,6 +23,15 @@ public class Venda {
         this.carrinho = carrinho;
         this.pagamento = pagamento;
     }
+
+    public Venda(UUID ID, Carrinho carrinho, LocalDateTime data, Pagamento pagamento) {
+        this.ID = ID;
+        this.carrinho = carrinho;
+        this.data = data;
+        this.pagamento = pagamento;
+    }
+    
+    
     
     public String getRelat()
     {

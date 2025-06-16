@@ -12,6 +12,7 @@ import Conceitos.Carrinho;
 import Conceitos.Cliente;
 import Conceitos.Pagamento;
 import Conceitos.Venda;
+import Factory.PagamentoFactory;
 import Factory.VendaFactory;
 
 /**
@@ -67,7 +68,8 @@ public class ControladorCliente {
         { // finalizar compra
 
             float total = carrinho.finalizarCompra();
-            Pagamento pagamento = new Pagamento(total);
+            PagamentoFactory facPa = new PagamentoFactory();
+            Pagamento pagamento = facPa.criarPagamento(total);
             
             while( !pagamento.confirmado() ){
                 Output.pagamentoFalha();

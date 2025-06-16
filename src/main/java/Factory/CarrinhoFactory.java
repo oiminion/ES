@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Persistencia;
+package Factory;
 
-import Catalogo.ProdutosCatalogo;
-import Factory.ProdutoFactory;
+import Conceitos.Carrinho;
+import Conceitos.Produto;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -13,19 +13,24 @@ import org.json.JSONObject;
  *
  * @author Arthur
  */
-class ProdutosPersistencia {
-     public static String getProdutosJSON()
+public class CarrinhoFactory {
+    public CarrinhoFactory()
+    {}
+    
+    public Carrinho CriarCarrinho()
     {
-        ProdutosCatalogo catalogo = ProdutosCatalogo.getInstance();
-        return catalogo.toJSON();
+        Carrinho novo = new Carrinho();
+        return novo;
     }
-     
-     public static void getProdutosCatalogo(JSONArray arr)
-     {
-         ProdutoFactory facP = new ProdutoFactory();
+    
+    public Carrinho lerCarrinho(JSONArray arr)
+    {
+        Carrinho novo = CriarCarrinho();
         
         for(int i = 0; i < arr.length(); i++)
         {
+            ProdutoFactory facP = new ProdutoFactory();
+            
             JSONObject obj = arr.getJSONObject(i);
             
             String CUP = obj.getString("CUP");
@@ -34,8 +39,12 @@ class ProdutosPersistencia {
             float Preco = obj.getFloat("Preco");
             String Especificacao = obj.getString("Especificacao");
             
-            facP.criarProdutoEstoque(CUP, Quantidade, Nome, Preco, Especificacao);
-                    
+            Produto prod = facP.criarProdutoCarrinho(CUP, Nome, Preco, Especificacao);
+            for(int j = 0; j < Quantidade; j++)
+            {
+                novo.addCarrinho(prod);
+            }
         }
-     }
+        return novo;
+    }
 }

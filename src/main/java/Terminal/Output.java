@@ -57,4 +57,9 @@ public class Output {
     {
         System.out.println("Código do compra: " + ID + "\n");
     }
+    
+    public static void valorTotal(float total)
+    {
+        System.out.println("Valor total: " + Float.toString(total));
+    }
 }
