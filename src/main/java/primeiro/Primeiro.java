@@ -8,8 +8,16 @@ import Terminal.Menu;
 import Conceitos.Cliente;
 import Catalogo.Banco;
 import Catalogo.FuncionariosCatalogo;
+import Conceitos.Carrinho;
 import Conceitos.Funcionario;
 import Conceitos.Gerente;
+import Conceitos.Pagamento;
+import Factory.FuncionarioFactory;
+import Factory.GerenteFactory;
+import Factory.ProdutoFactory;
+import Factory.VendaFactory;
+import Persistencia.FuncionariosPersistencia;
+import Persistencia.PersistenciaGeral;
 
 /**
  *
@@ -22,9 +30,26 @@ public class Primeiro {
         FuncionariosCatalogo catalogo_funcionarios = FuncionariosCatalogo.getInstance();
         Menu menu = new Menu();
         
-        Cliente logado = new Gerente("Dono", "CPF", "email", "12345", 0, null);
+        FuncionarioFactory facF = new FuncionarioFactory();
+        facF.criarFuncionario("Func", "CPF", "email", "12345", 0, null);
+        
+        GerenteFactory facG = new GerenteFactory();
+        Cliente logado =  (Gerente)facG.criarGerente("Dono", "CPF", "email", "12345", 0, null);
+        
         banco.mudarSessao();
-        catalogo_funcionarios.addFuncionario((Gerente)logado);
+        
+        ProdutoFactory facP = new ProdutoFactory();
+        facP.criarProdutoEstoque("P1", 1, "NomeP1", 10, null);
+        
+        Carrinho c = new Carrinho();
+        c.addCarrinho(facP.criarProdutoCarrinho("P2", "NomeP2", 20, null));
+        Pagamento pa = new Pagamento(10);
+        
+        VendaFactory facV = new VendaFactory();
+        facV.criarVenda(c,pa);
+        
+        PersistenciaGeral.escreverJSON();
+        
         boolean parar = false;
         while(!parar)
         {

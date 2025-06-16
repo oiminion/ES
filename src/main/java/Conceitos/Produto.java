@@ -4,6 +4,8 @@
  */
 package Conceitos;
 
+import Factory.ProdutoFactory;
+
 /**
  *
  */
@@ -35,7 +37,7 @@ public class Produto{
     
     public boolean compare(Produto prod)
     {
-        return this.Nome.equals(prod.getNome());
+        return this.CUP.equals(prod.getCUP());
     }
     
     public String getRelat()
@@ -93,8 +95,20 @@ public class Produto{
     {
         if(temNoEstoque())
         {
-            return new Produto(CUP, 1, Nome, Preco, Especificacao);
+            ProdutoFactory fac = new ProdutoFactory();
+            return fac.criarProdutoCarrinho(CUP, Nome, Preco, Especificacao);
         }
         return null;
+    }
+    
+    public String toJSON()
+    {
+        String result = "{CUP:" + CUP + ",";
+        result += "Quantidade:" + Integer.toString(Quantidade) + ",";
+        result += "Nome:" + Nome + ",";
+        result += "Preco:" + Float.toString(Preco) + ",";
+        result += "Especificacao:" + Especificacao + "}";
+        
+        return result;
     }
 }

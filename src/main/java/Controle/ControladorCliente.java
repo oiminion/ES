@@ -11,6 +11,8 @@ import Catalogo.ProdutosCatalogo;
 import Conceitos.Carrinho;
 import Conceitos.Cliente;
 import Conceitos.Pagamento;
+import Conceitos.Venda;
+import Factory.VendaFactory;
 
 /**
  *
@@ -74,6 +76,10 @@ public class ControladorCliente {
             Output.pagamentoCompleto();
             
             carrinho.comprar();
+            
+            VendaFactory fac = new VendaFactory();
+            Venda venda = fac.criarVenda(carrinho,pagamento);
+            Output.codigoCompra(venda.getID());
         }
         else
         {

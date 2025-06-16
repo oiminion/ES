@@ -44,12 +44,6 @@ public class VendasCatalogo {
         return null;
     }
     
-    public void addVenda(Carrinho carrinho, Pagamento pagamento)
-    {
-        Venda venda = new Venda(carrinho, pagamento);
-        Vendas.add(venda);
-    }
-    
     public void addVenda(Venda venda)
     {
         Vendas.add(venda);
@@ -61,5 +55,27 @@ public class VendasCatalogo {
         {
             Output.relatVenda(venda);
         }
+    }
+    
+    private String getVendasJSON()
+    {
+        String resultado = "Vendas:[";
+        for(Venda venda : Vendas)
+        {
+            resultado += venda.toJSON();
+            resultado += ",";
+        }
+        if(resultado.endsWith(","))
+        {
+            resultado = resultado.substring(0, resultado.length() - 1);
+        }
+        resultado += "]";
+        
+        return resultado;
+    }
+    
+    public String toJSON()
+    {   
+        return getVendasJSON();
     }
 }

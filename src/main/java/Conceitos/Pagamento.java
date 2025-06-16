@@ -17,6 +17,11 @@ public class Pagamento {
     public Pagamento(float valorTotal){
         this.valorTotal = valorTotal;
     }
+
+    public void setPago() 
+    {
+        this.valorPagado = valorTotal;
+    }
     
     public boolean confirmado(){
         valorPagado = Input.getPagamento();

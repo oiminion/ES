@@ -52,4 +52,9 @@ public class Output {
     {
         System.out.println("Produto nao encontrado\n");
     }
+    
+    public static void codigoCompra(String ID)
+    {
+        System.out.println("Código do compra: " + ID + "\n");
+    }
 }

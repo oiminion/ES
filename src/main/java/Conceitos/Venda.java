@@ -33,8 +33,23 @@ public class Venda {
         return result;
     }
     
+    public String getID()
+    {
+        return ID.toString();
+    }
+    
     public boolean compare(String string)
     {
         return ID.toString().equals(string);
+    }
+    
+    public String toJSON()
+    {   
+        String result = "{ID:" + ID.toString() + ",";
+        result += carrinho.toJSON() + ",";
+        result += "Data:" + data.toString().replace(':', '?') + ",";
+        result += "Preco:" + Float.toString(pagamento.getTotal()) + "}";
+        
+        return result;
     }
 }

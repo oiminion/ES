@@ -83,4 +83,21 @@ public class Carrinho {
         }
         return result;
     }
+    
+    public String toJSON()
+    {
+        String resultado = "Carrinho:[";
+        for(Produto prod : conteudo)
+        {
+            resultado += prod.toJSON();
+            resultado += ",";
+        }
+        if(resultado.endsWith(","))
+        {
+            resultado = resultado.substring(0, resultado.length() - 1);
+        }
+        resultado += "]";
+        
+        return resultado;
+    }
 }

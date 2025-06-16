@@ -6,7 +6,6 @@ package Conceitos;
 import java.util.UUID;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import Catalogo.Banco;
 /**
  *
  * @author Arthur
@@ -37,8 +36,7 @@ public class Funcionario extends Cliente{
         else
         {
             this.Categorias = Categorias;
-        } 
-        
+        }
     }
     
     public void mudarSenha(String senha, UUID sessao)
@@ -60,10 +58,22 @@ public class Funcionario extends Cliente{
         return (input.equals(Senha) && (sessao.toString()).equals(ID.toString()));
     }
     
+    public String toJSON()
+    {
+        String result = "{Nome:" + Nome + ",";
+        result += "CPF:" + CPF + ",";
+        result += "ID:" + ID.toString() + ",";
+        result += "Email:" + Email + ",";
+        result += "Senha:" + Senha + ",";
+        result += "Salario:" + Float.toString(Salario) + ",";
+        result += "Data_empregacao:" + DataEmpregacao.toString() + "}";
+        return result;
+    }
+    
     public String getRelat()
     {
         String result = "Nome: " + Nome;
-        result += "\nCPF: " + Senha;
+        result += "\nCPF: " + CPF;
         result += "\nID: " + ID.toString();
         result += "\nEmail: " + Email;
         result += "\nSalario: " + Float.toString(Salario);

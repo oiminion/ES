@@ -43,12 +43,12 @@ public class ProdutosCatalogo {
         return null;
     }
     
-    public void addProduto(String CUP, int Quantidade, String Nome, float Preco, String Especificacao)
+    public void addProduto(Produto produto)
     {
         boolean flag = true;
         for(Produto p : Produtos)
         {
-            if(p.compare(CUP))
+            if(p.compare(produto))
             {
                 p.add();
                 flag = false;
@@ -56,8 +56,7 @@ public class ProdutosCatalogo {
         }
         if(flag)
         {
-            Produto prod = new Produto(CUP, Quantidade, Nome, Preco, Especificacao);
-            Produtos.add(prod);
+            Produtos.add(produto);
         }
     }
     
@@ -81,5 +80,27 @@ public class ProdutosCatalogo {
         {
             Output.relatProduto(prod);
         }
+    }
+    
+    private String getProdutosJSON()
+    {
+        String resultado = "Produtos:[";
+        for(Produto prod : Produtos)
+        {
+            resultado += prod.toJSON();
+            resultado += ",";
+        }
+        if(resultado.endsWith(","))
+        {
+            resultado = resultado.substring(0, resultado.length() - 1);
+        }
+        resultado += "]";
+        
+        return resultado;
+    }
+    
+    public String toJSON()
+    {   
+        return getProdutosJSON();
     }
 }
