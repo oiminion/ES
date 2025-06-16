@@ -1,0 +1,61 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Persistencia;
+
+import Factory.GerenteFactory;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import org.json.JSONObject;
+
+/**
+ *
+ * @author Arthur
+ */
+public class PersistenciaGeral {
+    public static void escreverJSON()
+    {
+        String resultado = "{" + FuncionariosPersistencia.getFuncionariosJSON() + ",";
+        resultado += ProdutosPersistencia.getProdutosJSON() + ",";
+        resultado += VendasPersistencia.getVendasJSON();
+        resultado += "}";
+        
+        JSONObject ojt = new JSONObject(resultado);
+        
+        try (FileWriter file = new FileWriter("Dados.json")) {
+            file.write(ojt.toString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void lerJSON()
+    {
+        try (FileReader fileReader = new FileReader("Dados.json");
+            
+            BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+            String resultado = bufferedReader.readLine();
+            
+            JSONObject ojt = new JSONObject(resultado);
+            
+            if(ojt.isEmpty())
+            {
+                GerenteFactory facG = new GerenteFactory();//WIP
+                facG.criarGerente("Dono", "", "", "abc123", 0, null);
+            }
+            else
+            {
+                FuncionariosPersistencia.getFuncionariosCatalogo(ojt.getJSONObject("FuncionariosCatalogo"));
+                ProdutosPersistencia.getProdutosCatalogo(ojt.getJSONArray("Produtos"));
+                VendasPersistencia.getVendasCatalogo(ojt.getJSONArray("Vendas"));
+            }
+            
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
+    }
+}

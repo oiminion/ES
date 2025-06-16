@@ -4,14 +4,20 @@
 
 package primeiro;
 
-import Terminal.Input;
 import Terminal.Menu;
-import Terminal.Output;
-import primeiro.Usuarios.Cliente;
-import java.util.UUID;
-import primeiro.Banco.Banco;
-import primeiro.Usuarios.Funcionario;
-import primeiro.Usuarios.Gerente;
+import Conceitos.Cliente;
+import Catalogo.Banco;
+import Catalogo.FuncionariosCatalogo;
+import Conceitos.Carrinho;
+import Conceitos.Funcionario;
+import Conceitos.Gerente;
+import Conceitos.Pagamento;
+import Factory.FuncionarioFactory;
+import Factory.GerenteFactory;
+import Factory.ProdutoFactory;
+import Factory.VendaFactory;
+import Persistencia.FuncionariosPersistencia;
+import Persistencia.PersistenciaGeral;
 
 /**
  *
@@ -22,15 +28,36 @@ public class Primeiro {
     public static void main(String[] args) {
         Banco banco = Banco.getInstance();
         
-        Cliente logado = new Gerente("Dono", "CPF", "email", "12345", 0, null);
+        PersistenciaGeral.lerJSON();
+        
+        FuncionariosCatalogo catalogo_funcionarios = FuncionariosCatalogo.getInstance();
+        Menu menu = new Menu();
+        /*
+        FuncionarioFactory facF = new FuncionarioFactory();
+        facF.criarFuncionario("Func", "CPF", "email", "12345", 0, null);
+        */
+        //
+        Cliente logado =  catalogo_funcionarios.getFuncionario("Dono");
+
         banco.mudarSessao();
-        banco.addFuncionario((Gerente)logado);
+        /*
+        ProdutoFactory facP = new ProdutoFactory();
+        facP.criarProdutoEstoque("P1", 1, "NomeP1", 10, null);
+        
+        Carrinho c = new Carrinho();
+        c.addCarrinho(facP.criarProdutoCarrinho("P2", "NomeP2", 20, null));
+        Pagamento pa = new Pagamento(10);
+        
+        VendaFactory facV = new VendaFactory();
+        facV.criarVenda(c,pa);
+        */
+        
         boolean parar = false;
         while(!parar)
         {
             if(logado == null)
             {
-                logado = Menu.menuLogin(banco);
+                logado = menu.menuLogin(banco);
                 if(logado == null)
                 {
                     parar = true;
@@ -39,18 +66,19 @@ public class Primeiro {
             else if(logado instanceof Gerente)
             {
                 System.out.println("GERENTE");
-                logado = Menu.menuGerente((Gerente)logado, banco);
+                logado = menu.menuGerente((Gerente)logado);
             }
             else if(logado instanceof Funcionario)
             {
                 System.out.println("FUNCIONARIO");
-                logado = Menu.menuFuncionario((Funcionario)logado, banco);
+                logado = menu.menuFuncionario((Funcionario)logado);
             }
             else if(logado instanceof Cliente)
             {
                 System.out.println("CLIENTE");
-                logado = Menu.menuCliente(logado, banco);
+                logado = menu.menuCliente(logado);
             }
         }
+        //PersistenciaGeral.escreverJSON();
     }
 }
