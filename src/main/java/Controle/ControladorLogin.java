@@ -34,11 +34,24 @@ public class ControladorLogin {
         {
             String nome = Input.getNomeUsu();
             Funcionario novo = catalogo.getFuncionario(nome);
-            String senha = Input.getSenha();
-            if(novo.confirmaSenha(senha, banco.getSessao()))
+            while(novo == null)
             {
-                return novo;
+                novo = catalogo.getFuncionario(nome);
             }
+            String senha = Input.getSenha();
+            boolean flag = false;
+            while(!flag)
+            {
+                if(novo.confirmaSenha(senha))
+                {
+                    flag = true;
+                }
+            }
+            return novo;
+        }
+        else if(opcao == -1)
+        {
+            return null;
         }
         else
         {

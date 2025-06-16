@@ -27,30 +27,24 @@ public class Primeiro {
 
     public static void main(String[] args) {
         Banco banco = Banco.getInstance();
-        
-        PersistenciaGeral.lerJSON();
-        
-        FuncionariosCatalogo catalogo_funcionarios = FuncionariosCatalogo.getInstance();
+        Cliente logado = null;
         Menu menu = new Menu();
+        
+        if(!PersistenciaGeral.lerJSON())
+        {
+            banco.mudarSessao();
+            logado = menu.criarDono();
+        }
+
+        
         /*
         FuncionarioFactory facF = new FuncionarioFactory();
         facF.criarFuncionario("Func", "CPF", "email", "12345", 0, null);
         */
         //
-        Cliente logado =  catalogo_funcionarios.getFuncionario("Dono");
+        
 
         banco.mudarSessao();
-        /*
-        ProdutoFactory facP = new ProdutoFactory();
-        facP.criarProdutoEstoque("P1", 1, "NomeP1", 10, null);
-        
-        Carrinho c = new Carrinho();
-        c.addCarrinho(facP.criarProdutoCarrinho("P2", "NomeP2", 20, null));
-        Pagamento pa = new Pagamento(10);
-        
-        VendaFactory facV = new VendaFactory();
-        facV.criarVenda(c,pa);
-        */
         
         boolean parar = false;
         while(!parar)
@@ -79,6 +73,6 @@ public class Primeiro {
                 logado = menu.menuCliente(logado);
             }
         }
-        //PersistenciaGeral.escreverJSON();
+        PersistenciaGeral.escreverJSON();
     }
 }

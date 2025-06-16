@@ -48,4 +48,9 @@ public class ControladorCentral {
     {
         controlador_gerente.GerenteAcao(opcao,gerente);
     }
+    
+    public Gerente CriarDono()
+    {
+        return controlador_gerente.CriarDono();
+    }
 }

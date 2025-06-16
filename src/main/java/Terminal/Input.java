@@ -179,4 +179,28 @@ public class Input {
         System.out.println("Insira o valor que se pagou: ");
         return Integer.parseInt(getString()); 
     }
+    
+    public static String getCPFGer()
+    {
+        System.out.println("Digite o CPF do gerente:");
+        return getString();
+    }
+    
+    public static String getEmailGer()
+    {
+        System.out.println("Digite o email do gerente:");
+        return getString();
+    }
+    
+    public static float getSalarioGer()
+    {
+        System.out.println("Digite o salário do gerente:");
+        return Float.parseFloat(getString());
+    }
+    
+    public static String getNomeGer()
+    {
+        System.out.println("Digite o nome do gerente:");
+        return getString();
+    }
 }

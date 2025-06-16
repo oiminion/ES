@@ -78,4 +78,9 @@ public class Menu {
         }
         return null;
     }
+    
+    public Gerente criarDono()
+    {
+        return controle.CriarDono();
+    }
 }

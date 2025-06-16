@@ -23,6 +23,8 @@ public class PersistenciaGeral {
         resultado += VendasPersistencia.getVendasJSON();
         resultado += "}";
         
+        System.out.println(resultado);
+        
         JSONObject ojt = new JSONObject(resultado);
         
         try (FileWriter file = new FileWriter("Dados.json")) {
@@ -33,7 +35,7 @@ public class PersistenciaGeral {
         }
     }
     
-    public static void lerJSON()
+    public static boolean lerJSON()
     {
         try (FileReader fileReader = new FileReader("Dados.json");
             
@@ -42,20 +44,21 @@ public class PersistenciaGeral {
             
             JSONObject ojt = new JSONObject(resultado);
             
+            System.out.println(ojt);
+            
             if(ojt.isEmpty())
             {
-                GerenteFactory facG = new GerenteFactory();//WIP
-                facG.criarGerente("Dono", "", "", "abc123", 0, null);
+                return false;
             }
             else
             {
                 FuncionariosPersistencia.getFuncionariosCatalogo(ojt.getJSONObject("FuncionariosCatalogo"));
                 ProdutosPersistencia.getProdutosCatalogo(ojt.getJSONArray("Produtos"));
                 VendasPersistencia.getVendasCatalogo(ojt.getJSONArray("Vendas"));
+                return true;
             }
-            
         } catch (IOException e) {
-            System.err.println("Error reading file: " + e.getMessage());
+            return false;
         }
     }
 }

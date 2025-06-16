@@ -66,9 +66,9 @@ public class Funcionario extends Cliente{
         return (input.equals(Nome) || input.equals(ID.toString()));
     }
     
-    public boolean confirmaSenha(String input, UUID sessao)
+    public boolean confirmaSenha(String input)
     {
-        return (input.equals(Senha) && (sessao.toString()).equals(ID.toString()));
+        return (input.equals(Senha));
     }
     
     public String toJSON()

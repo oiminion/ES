@@ -30,7 +30,7 @@ public class GerenteFactory {
     {
         FuncionariosCatalogo catalogo_funcionario = FuncionariosCatalogo.getInstance();
         Gerente novo = new Gerente(Nome, CPF, ID, Email, Senha, Salario, DataEmpregacao, Categorias);
-        catalogo_funcionario.addFuncionario(novo);
+        catalogo_funcionario.addGerente(novo);
         return novo;
     }
 }

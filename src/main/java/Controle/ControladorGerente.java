@@ -9,6 +9,7 @@ import Catalogo.ProdutosCatalogo;
 import Conceitos.Funcionario;
 import Conceitos.Gerente;
 import Conceitos.Produto;
+import Factory.GerenteFactory;
 import Terminal.Input;
 import Terminal.Output;
 
@@ -69,5 +70,16 @@ public class ControladorGerente {
         {
             Output.opInvalida();
         }
+    }
+    
+    public Gerente CriarDono()
+    {
+        String nome = Input.getNomeGer();
+        String CPF = Input.getCPFGer();
+        String email = Input.getEmailGer();
+        String senha = Input.getSenha();
+        float salario = Input.getSalarioGer();
+        GerenteFactory facG = new GerenteFactory();
+        return facG.criarGerente(nome, CPF, email, senha, salario, null);
     }
 }
