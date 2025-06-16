@@ -36,7 +36,7 @@ public class Primeiro {
         FuncionarioFactory facF = new FuncionarioFactory();
         facF.criarFuncionario("Func", "CPF", "email", "12345", 0, null);
         */
-        //GerenteFactory facG = new GerenteFactory();
+        //
         Cliente logado =  catalogo_funcionarios.getFuncionario("Dono");
 
         banco.mudarSessao();
