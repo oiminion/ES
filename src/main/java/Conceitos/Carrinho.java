@@ -76,11 +76,15 @@ public class Carrinho {
     
     public String getRelat()
     {
-        String result = "";
+        String result = "Carrinho:\n";
         for(Produto p : conteudo)
         {
-            result += p.getRelat();
+            result += p.getRelat() + "\n\n";
         }
+        float total = calcularTotal();
+        
+        result += "Valor total: " + Float.toString(total) + "\n";
+        
         return result;
     }
     

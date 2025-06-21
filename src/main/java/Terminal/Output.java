@@ -62,4 +62,9 @@ public class Output {
     {
         System.out.println("Valor total: " + Float.toString(total));
     }
+    
+    public static void showOutput(String texto)
+    {
+        System.out.println(texto);
+    }
 }

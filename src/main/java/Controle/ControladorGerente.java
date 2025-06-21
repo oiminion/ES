@@ -9,7 +9,9 @@ import Catalogo.ProdutosCatalogo;
 import Conceitos.Funcionario;
 import Conceitos.Gerente;
 import Conceitos.Produto;
+import Factory.FuncionarioFactory;
 import Factory.GerenteFactory;
+import Factory.ProdutoFactory;
 import Terminal.Input;
 import Terminal.Output;
 
@@ -39,7 +41,8 @@ public class ControladorGerente {
             String email = Input.getEmailFunc();
             String senha = Input.getSenha();
             float salario = Input.getSalarioFunc();
-            gerente.cadastrarFuncionario(nome, CPF, email, senha, salario, null);
+            FuncionarioFactory fac = new FuncionarioFactory();
+            fac.criarFuncionario(nome, CPF, email, senha, salario, null);
         }
         else if(opcao == 2)
         {
@@ -48,7 +51,8 @@ public class ControladorGerente {
             float Preco = Input.getPreco();
             String Especificacao = Input.getEspec();
             int Quantidade = Input.getQuantidade();
-            gerente.cadastrarProduto(CUP, Quantidade, Nome, Preco, Especificacao);
+            ProdutoFactory fac = new ProdutoFactory();
+            fac.criarProdutoEstoque(CUP, Quantidade, Nome, Preco, Especificacao);
         }
         else if(opcao == 3)
         {
@@ -72,7 +76,7 @@ public class ControladorGerente {
         }
     }
     
-    public Gerente CriarDono()
+    public Gerente CriarDono()//esse está aqui, pq n vai dar para implementar criar gerente
     {
         String nome = Input.getNomeGer();
         String CPF = Input.getCPFGer();

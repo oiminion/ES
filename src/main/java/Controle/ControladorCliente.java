@@ -62,7 +62,8 @@ public class ControladorCliente {
         if(opcao == 2)
         { // ver produtos
 
-            carrinho.relatCarrinho();
+            String relatorio = carrinho.getRelat();
+            Output.showOutput(relatorio);
         }
         if(opcao == 3)
         { // finalizar compra
