@@ -46,6 +46,10 @@ public class ControladorLogin {
                 {
                     flag = true;
                 }
+                if(!flag)
+                {
+                    senha = Input.getSenha();
+                }
             }
             return novo;
         }

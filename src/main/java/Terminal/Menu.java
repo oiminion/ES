@@ -35,24 +35,34 @@ public class Menu {
         return null;
     }
     
-    public Cliente menuCliente(Cliente cliente)
-    {
-        int opcao = 0;
-        while(opcao != -1)
-        {
-            opcao = Input.getMenuCliente();
-            controle.ClienteAcao(opcao, cliente);
-        }
-        return null;
-    }
-    
-     public Gerente subMenuCliente(Cliente cliente)
+    public boolean subMenuCliente(Cliente cliente)
     {
         int opcao = 0;
         while(opcao != -2)
         {
             opcao = Input.getMenuClienteCompra();
-            controle.ClienteCompra(opcao, cliente);
+            opcao = controle.ClienteCompra(opcao, cliente);
+        }
+        return false;
+    }
+    
+    public Cliente menuCliente(Cliente cliente)
+    {
+        int opcao = 0;
+        boolean comprando = false;
+        while(opcao != -1)
+        {
+            opcao = Input.getMenuCliente();
+            
+            if(!comprando)
+            {
+                comprando = controle.ClienteAcao(opcao, cliente);
+            }
+            
+            if(comprando)
+            {
+                comprando = subMenuCliente(cliente);
+            }
         }
         return null;
     }

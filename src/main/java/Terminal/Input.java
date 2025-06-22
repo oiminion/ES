@@ -87,6 +87,12 @@ public class Input {
         return getString();
     }
     
+    public static String getNovaSenha()
+    {
+        System.out.println("Digite a nova senha:");
+        return getString();
+    }
+    
     public static String getNomeProd()
     {
         System.out.println("Digite o nome do produto:");
@@ -157,6 +163,7 @@ public class Input {
                            2 : relatorio de vendas
                            3 : buscar funcionario
                            4 : buscar produto
+                           5 : mudar senha
                            -1: logout""");
         return Integer.parseInt(getString());   
     }
@@ -170,14 +177,15 @@ public class Input {
                            3 : relatorio de produtos
                            4 : buscar funcionario
                            5 : buscar produto
+                           6 : mudar senha
                            -1: logout""");
         return Integer.parseInt(getString());   
     }
     
-    public static int getPagamento()
+    public static float getPagamento()
     {
         System.out.println("Insira o valor que se pagou: ");
-        return Integer.parseInt(getString()); 
+        return Float.parseFloat(getString()); 
     }
     
     public static String getCPFGer()

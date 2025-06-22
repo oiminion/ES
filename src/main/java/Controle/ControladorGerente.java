@@ -70,6 +70,12 @@ public class ControladorGerente {
             Produto prod = catalogo_produto.getProduto(input);
             Output.relatProduto(prod);
         }
+        else if(opcao == 6)
+        {
+            String senha = Input.getSenha();
+            String nova_senha = Input.getNovaSenha();
+            gerente.mudarSenha(senha, nova_senha);
+        }
         else
         {
             Output.opInvalida();

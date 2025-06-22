@@ -52,11 +52,11 @@ public class Funcionario extends Cliente{
         }
     }
     
-    public void mudarSenha(String senha, UUID sessao)
+    public void mudarSenha(String senha, String nova_senha)
     {
-        if(sessao.equals(banco.getSessao()))
+        if(senha.equals(this.Senha))
         {
-            this.Senha = senha;
+            this.Senha = nova_senha;
         }
     
     }

@@ -25,7 +25,7 @@ public class ControladorCliente {
     
     }
     
-    public void ClienteAcao(int opcao, Cliente cliente)
+    public boolean ClienteAcao(int opcao, Cliente cliente)
     {
         ProdutosCatalogo catalogo = ProdutosCatalogo.getInstance();
         if(opcao == -1)
@@ -36,15 +36,19 @@ public class ControladorCliente {
         {
             String input = Input.getIdentProd();
             Produto prod = catalogo.getProduto(input);
-            Output.relatProduto(prod);
+            if(prod != null)
+            {
+                Output.relatProduto(prod);
+            }
         }
         else if(opcao == 2)
         {
-            
+            return true;
         }
+        return false;
     }
     
-    public void ClienteCompra(int opcao, Cliente cliente)
+    public int ClienteCompra(int opcao, Cliente cliente)
     {
         ProdutosCatalogo catalogo = ProdutosCatalogo.getInstance();
         Carrinho carrinho = new Carrinho();
@@ -83,10 +87,12 @@ public class ControladorCliente {
             VendaFactory fac = new VendaFactory();
             Venda venda = fac.criarVenda(carrinho,pagamento);
             Output.codigoCompra(venda.getID());
+            return -2;
         }
         else
         {
             Output.opInvalida();
         }
+        return 4;
     }
 }

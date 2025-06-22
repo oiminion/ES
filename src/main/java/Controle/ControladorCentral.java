@@ -28,14 +28,14 @@ public class ControladorCentral {
         return controlador_login.logarUsuario(opcao);
     }
     
-    public void ClienteAcao(int opcao, Cliente cliente)
+    public boolean ClienteAcao(int opcao, Cliente cliente)
     {
-        controlador_cliente.ClienteAcao(opcao, cliente);
+        return controlador_cliente.ClienteAcao(opcao, cliente);
     }
     
-    public void ClienteCompra(int opcao, Cliente cliente)
+    public int ClienteCompra(int opcao, Cliente cliente)
     {
-        controlador_cliente.ClienteCompra(opcao, cliente);
+        return controlador_cliente.ClienteCompra(opcao, cliente);
 
     }
     

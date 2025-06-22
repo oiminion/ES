@@ -52,6 +52,12 @@ public class ControladorFuncionario {
             Produto prod = catalogo_produto.getProduto(input);
             Output.relatProduto(prod);
         }
+        else if(opcao == 5)
+        {
+            String senha = Input.getSenha();
+            String nova_senha = Input.getNovaSenha();
+            funcionario.mudarSenha(senha, nova_senha);
+        }
         else
         {
             Output.opInvalida();
