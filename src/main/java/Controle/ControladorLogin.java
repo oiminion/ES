@@ -9,7 +9,6 @@ import Conceitos.Funcionario;
 import Terminal.Input;
 import Terminal.Output;
 import Catalogo.FuncionariosCatalogo;
-import Catalogo.Banco;
 
 /**
  *
@@ -24,33 +23,22 @@ public class ControladorLogin {
     public Cliente logarUsuario(int opcao)
     {
         FuncionariosCatalogo catalogo = FuncionariosCatalogo.getInstance();
-        Banco banco = Banco.getInstance();
         if(opcao == 1)
         {
-            banco.mudarSessao();
             return Cliente.getInstance();
         }
         else if(opcao == 2)
         {
-            String nome = Input.getNomeUsu();
-            Funcionario novo = catalogo.getFuncionario(nome);
-            while(novo == null)
-            {
+            String nome;
+            Funcionario novo;
+            do{
+                nome = Input.getNomeUsu();
                 novo = catalogo.getFuncionario(nome);
-            }
-            String senha = Input.getSenha();
-            boolean flag = false;
-            while(!flag)
-            {
-                if(novo.confirmaSenha(senha))
-                {
-                    flag = true;
-                }
-                if(!flag)
-                {
-                    senha = Input.getSenha();
-                }
-            }
+            }while(novo == null);
+            String senha;
+            do{
+                senha = Input.getSenha();
+            }while(novo.confirmaSenha(senha) == false);
             return novo;
         }
         else if(opcao == -1)

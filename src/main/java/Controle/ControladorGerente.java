@@ -6,6 +6,7 @@ package Controle;
 
 import Catalogo.FuncionariosCatalogo;
 import Catalogo.ProdutosCatalogo;
+import Catalogo.VendasCatalogo;
 import Conceitos.Funcionario;
 import Conceitos.Gerente;
 import Conceitos.Produto;
@@ -28,8 +29,6 @@ public class ControladorGerente {
     
     public void GerenteAcao(int opcao, Gerente gerente)
     {
-        ProdutosCatalogo catalogo_produto = ProdutosCatalogo.getInstance();
-        FuncionariosCatalogo catalogo_funcionario = FuncionariosCatalogo.getInstance();
         if(opcao == -1)
         {
             
@@ -56,21 +55,29 @@ public class ControladorGerente {
         }
         else if(opcao == 3)
         {
+            ProdutosCatalogo catalogo_produto = ProdutosCatalogo.getInstance();
             catalogo_produto.relatorioProdutos();
         }
         else if(opcao == 4)
         {
+            VendasCatalogo catalogo_venda = VendasCatalogo.getInstance();
+            catalogo_venda.relatorioVendas();
+        }
+        else if(opcao == 5)
+        {
+            FuncionariosCatalogo catalogo_funcionario = FuncionariosCatalogo.getInstance();
             String input = Input.getIdentFunc();
             Funcionario func = catalogo_funcionario.getFuncionario(input);
             Output.relatFuncionario(func);
         }
-        else if(opcao == 5)
+        else if(opcao == 6)
         {
+            ProdutosCatalogo catalogo_produto = ProdutosCatalogo.getInstance();
             String input = Input.getIdentProd();
             Produto prod = catalogo_produto.getProduto(input);
             Output.relatProduto(prod);
         }
-        else if(opcao == 6)
+        else if(opcao == 7)
         {
             String senha = Input.getSenha();
             String nova_senha = Input.getNovaSenha();

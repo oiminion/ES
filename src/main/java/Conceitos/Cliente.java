@@ -5,7 +5,6 @@
 package Conceitos;
 
 import java.util.ArrayList;
-import Catalogo.Banco;
 
 /**
  *
@@ -13,13 +12,11 @@ import Catalogo.Banco;
  */
 public class Cliente {
     private static Cliente instance;
-    protected Banco banco;
-    
+
     protected ArrayList<Produto> Carrinho;
     
     protected Cliente()
     {
-        banco = Banco.getInstance();
         Carrinho = new ArrayList<>();
     }
 

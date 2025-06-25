@@ -175,9 +175,10 @@ public class Input {
                            1 : cadastrar funcionario
                            2 : cadastrar produto
                            3 : relatorio de produtos
-                           4 : buscar funcionario
-                           5 : buscar produto
-                           6 : mudar senha
+                           4 : relatorio de vendas
+                           5 : buscar funcionario
+                           6 : buscar produto
+                           7 : mudar senha
                            -1: logout""");
         return Integer.parseInt(getString());   
     }

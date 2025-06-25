@@ -4,7 +4,6 @@
  */
 package Terminal;
 
-import Catalogo.Banco;
 import Conceitos.Cliente;
 import Conceitos.Funcionario;
 import Conceitos.Gerente;
@@ -24,7 +23,7 @@ public class Menu {
     
     }
     
-    public Cliente menuLogin(Banco banco)
+    public Cliente menuLogin()
     {
         int opcao = 0;
         while(opcao != -1)

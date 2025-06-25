@@ -16,7 +16,6 @@ Persistencia\FuncionariosPersistencia.class
 Conceitos\Cliente.class
 Catalogo\ProdutosCatalogo.class
 Factory\GerenteFactory.class
-Catalogo\Banco.class
 Terminal\Output.class
 Controle\ControladorGerente.class
 Catalogo\VendasCatalogo.class

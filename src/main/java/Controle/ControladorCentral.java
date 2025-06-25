@@ -13,10 +13,10 @@ import Conceitos.Gerente;
  * @author Arthur
  */
 public class ControladorCentral {
-    ControladorCliente controlador_cliente = new ControladorCliente();
-    ControladorFuncionario controlador_funcionario = new ControladorFuncionario();
-    ControladorGerente controlador_gerente = new ControladorGerente();
-    ControladorLogin controlador_login = new ControladorLogin();
+    private ControladorCliente controlador_cliente = new ControladorCliente();
+    private ControladorFuncionario controlador_funcionario = new ControladorFuncionario();
+    private ControladorGerente controlador_gerente = new ControladorGerente();
+    private ControladorLogin controlador_login = new ControladorLogin();
     
     public ControladorCentral()
     {

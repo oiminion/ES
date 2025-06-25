@@ -6,17 +6,8 @@ package primeiro;
 
 import Terminal.Menu;
 import Conceitos.Cliente;
-import Catalogo.Banco;
-import Catalogo.FuncionariosCatalogo;
-import Conceitos.Carrinho;
 import Conceitos.Funcionario;
 import Conceitos.Gerente;
-import Conceitos.Pagamento;
-import Factory.FuncionarioFactory;
-import Factory.GerenteFactory;
-import Factory.ProdutoFactory;
-import Factory.VendaFactory;
-import Persistencia.FuncionariosPersistencia;
 import Persistencia.PersistenciaGeral;
 
 /**
@@ -26,13 +17,11 @@ import Persistencia.PersistenciaGeral;
 public class Primeiro {
 
     public static void main(String[] args) {
-        Banco banco = Banco.getInstance();
         Cliente logado = null;
         Menu menu = new Menu();
         
         if(!PersistenciaGeral.lerJSON())
         {
-            banco.mudarSessao();
             logado = menu.criarDono();
         }
 
@@ -41,17 +30,13 @@ public class Primeiro {
         FuncionarioFactory facF = new FuncionarioFactory();
         facF.criarFuncionario("Func", "CPF", "email", "12345", 0, null);
         */
-        //
-        
-
-        banco.mudarSessao();
         
         boolean parar = false;
         while(!parar)
         {
             if(logado == null)
             {
-                logado = menu.menuLogin(banco);
+                logado = menu.menuLogin();
                 if(logado == null)
                 {
                     parar = true;

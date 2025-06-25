@@ -27,7 +27,6 @@ public class ControladorCliente {
     
     public boolean ClienteAcao(int opcao, Cliente cliente)
     {
-        ProdutosCatalogo catalogo = ProdutosCatalogo.getInstance();
         if(opcao == -1)
         {
             
@@ -35,6 +34,7 @@ public class ControladorCliente {
         else if(opcao == 1)
         {
             String input = Input.getIdentProd();
+            ProdutosCatalogo catalogo = ProdutosCatalogo.getInstance();
             Produto prod = catalogo.getProduto(input);
             if(prod != null)
             {
@@ -50,13 +50,13 @@ public class ControladorCliente {
     
     public int ClienteCompra(int opcao, Cliente cliente)
     {
-        ProdutosCatalogo catalogo = ProdutosCatalogo.getInstance();
         Carrinho carrinho = new Carrinho();
         
         if(opcao == 1)
         {
             // adicionar produto
             String input = Input.getIdentProd();
+            ProdutosCatalogo catalogo = ProdutosCatalogo.getInstance();
             Produto prod = catalogo.getProduto(input);
             if( prod != null )
             {
