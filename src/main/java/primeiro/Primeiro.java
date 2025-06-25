@@ -36,7 +36,7 @@ public class Primeiro {
         {
             if(logado == null)
             {
-                logado = menu.menuLogin();
+                logado = menu.menuLogin();//banco);
                 if(logado == null)
                 {
                     parar = true;

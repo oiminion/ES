@@ -44,8 +44,6 @@ public class PersistenciaGeral {
             
             JSONObject ojt = new JSONObject(resultado);
             
-            System.out.println(ojt);
-            
             if(ojt.isEmpty())
             {
                 return false;
