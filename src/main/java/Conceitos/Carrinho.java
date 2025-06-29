@@ -5,7 +5,6 @@
 package Conceitos;
 
 import Catalogo.ProdutosCatalogo;
-import Terminal.Output;
 import java.util.ArrayList;
 
 /**
@@ -47,21 +46,22 @@ public class Carrinho {
         return total;
     }
     
-    public void relatCarrinho()
+    public String relatCarrinho()
     {
+        String result = "Carriho:\n";
         for(Produto p : conteudo)
         {
-            Output.relatProduto(p);
+            result += p.getRelat();
         }
         float total = calcularTotal();
-        Output.valorTotal(total);
+        result += "Total: " + Float.toString(total) + "\n";
+        return result;
     }
     
     public float finalizarCompra()
     {
         
         float total = calcularTotal();
-        Output.relatCompra(total);
         return total;
     }
     

@@ -4,10 +4,7 @@
  */
 package Catalogo;
 
-import Conceitos.Carrinho;
-import Conceitos.Pagamento;
 import Conceitos.Venda;
-import Terminal.Output;
 import java.util.ArrayList;
 
 /**
@@ -49,12 +46,14 @@ public class VendasCatalogo {
         Vendas.add(venda);
     }   
     
-    public void relatorioVendas()
+    public String relatorioVendas()
     {
+        String result = "Vendas:\n";
         for(Venda venda : Vendas)
         {
-            Output.relatVenda(venda);
+            result += venda.getRelat();
         }
+        return result;
     }
     
     private String getVendasJSON()

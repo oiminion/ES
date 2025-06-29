@@ -6,7 +6,6 @@ package Catalogo;
 
 import java.util.ArrayList;
 import Conceitos.Produto;
-import Terminal.Output;
 
 /**
  *
@@ -39,7 +38,6 @@ public class ProdutosCatalogo {
                 return prod;
             }
         }
-        Output.produtoNaoEncontrado();
         return null;
     }
     
@@ -74,12 +72,14 @@ public class ProdutosCatalogo {
         }
     }
     
-    public void relatorioProdutos()
+    public String relatorioProdutos()
     {
+        String result = "Produtos:\n";
         for(Produto prod : Produtos)
         {
-            Output.relatProduto(prod);
+            result += prod.getRelat();
         }
+        return result;
     }
     
     private String getProdutosJSON()

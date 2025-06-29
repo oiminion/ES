@@ -31,26 +31,36 @@ public class ControladorFuncionario {
         else if(opcao == 1)
         {
             ProdutosCatalogo catalogo_produto = ProdutosCatalogo.getInstance();
-            catalogo_produto.relatorioProdutos();
+            String relatorio = catalogo_produto.relatorioProdutos();
+            Output.showOutput(relatorio);
         }
         else if(opcao == 2)
         {
             VendasCatalogo catalogo_vendas = VendasCatalogo.getInstance();
-            catalogo_vendas.relatorioVendas();
+            String relatorio = catalogo_vendas.relatorioVendas();
+            Output.showOutput(relatorio);
         }
         else if(opcao == 3)
         {
             String input = Input.getIdentFunc();
             FuncionariosCatalogo catalogo_funcionario = FuncionariosCatalogo.getInstance();
             Funcionario func = catalogo_funcionario.getFuncionario(input);
-            Output.relatFuncionario(func);
+            Output.showOutput(func.getRelat());
         }
         else if(opcao == 4)
         {
             String input = Input.getIdentProd();
             ProdutosCatalogo catalogo_produto = ProdutosCatalogo.getInstance();
             Produto prod = catalogo_produto.getProduto(input);
-            Output.relatProduto(prod);
+            if(prod != null)
+            {
+                Output.showOutput(prod.getRelat());
+            }
+            else
+            {
+                Output.produtoNaoEncontrado();
+            }
+            
         }
         else if(opcao == 5)
         {

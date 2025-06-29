@@ -56,26 +56,35 @@ public class ControladorGerente {
         else if(opcao == 3)
         {
             ProdutosCatalogo catalogo_produto = ProdutosCatalogo.getInstance();
-            catalogo_produto.relatorioProdutos();
+            String relatorio = catalogo_produto.relatorioProdutos();
+            Output.showOutput(relatorio);
         }
         else if(opcao == 4)
         {
             VendasCatalogo catalogo_venda = VendasCatalogo.getInstance();
-            catalogo_venda.relatorioVendas();
+            String relatorio = catalogo_venda.relatorioVendas();
+            Output.showOutput(relatorio);
         }
         else if(opcao == 5)
         {
             FuncionariosCatalogo catalogo_funcionario = FuncionariosCatalogo.getInstance();
             String input = Input.getIdentFunc();
             Funcionario func = catalogo_funcionario.getFuncionario(input);
-            Output.relatFuncionario(func);
+            Output.showOutput(func.getRelat());
         }
         else if(opcao == 6)
         {
             ProdutosCatalogo catalogo_produto = ProdutosCatalogo.getInstance();
             String input = Input.getIdentProd();
             Produto prod = catalogo_produto.getProduto(input);
-            Output.relatProduto(prod);
+            if(prod != null)
+            {
+                Output.showOutput(prod.getRelat());
+            }
+            else
+            {
+                Output.produtoNaoEncontrado();
+            }
         }
         else if(opcao == 7)
         {

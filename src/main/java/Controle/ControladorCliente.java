@@ -38,7 +38,11 @@ public class ControladorCliente {
             Produto prod = catalogo.getProduto(input);
             if(prod != null)
             {
-                Output.relatProduto(prod);
+                Output.showOutput(prod.getRelat());
+            }
+            else
+            {
+                Output.produtoNaoEncontrado();
             }
         }
         else if(opcao == 2)
@@ -73,6 +77,7 @@ public class ControladorCliente {
         { // finalizar compra
 
             float total = carrinho.finalizarCompra();
+            Output.relatCompra(total);
             PagamentoFactory facPa = new PagamentoFactory();
             Pagamento pagamento = facPa.criarPagamento(total);
             
