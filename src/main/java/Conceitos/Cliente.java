@@ -4,8 +4,6 @@
  */
 package Conceitos;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Arthur
@@ -13,11 +11,11 @@ import java.util.ArrayList;
 public class Cliente {
     private static Cliente instance;
 
-    protected ArrayList<Produto> Carrinho;
+    protected Carrinho carrinho;
     
     protected Cliente()
     {
-        Carrinho = new ArrayList<>();
+        carrinho = new Carrinho();
     }
 
     public static Cliente getInstance()
@@ -27,5 +25,35 @@ public class Cliente {
             instance = new Cliente();
         }
         return instance;
+    }
+    
+    public float getTotal()
+    {
+        return carrinho.finalizarCompra();
+    }
+    
+    public void comprar()
+    {
+        carrinho.comprar();
+    }
+    
+    public Carrinho getCarrinho()
+    {
+        return carrinho;
+    }
+    
+    public void addCarrinho(Produto produto)
+    {
+        carrinho.addCarrinho(produto);
+    }
+    
+    public String getRelatCarrinho()
+    {
+        return carrinho.getRelat();
+    }
+    
+    public void resetCarrinho()
+    {
+        carrinho = new Carrinho();
     }
 }

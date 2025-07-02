@@ -54,7 +54,6 @@ public class ControladorCliente {
     
     public int ClienteCompra(int opcao, Cliente cliente)
     {
-        Carrinho carrinho = new Carrinho();
         
         if(opcao == 1)
         {
@@ -64,19 +63,19 @@ public class ControladorCliente {
             Produto prod = catalogo.getProduto(input);
             if( prod != null )
             {
-                carrinho.addCarrinho(prod);
+                cliente.addCarrinho(prod);
             }
         }
         if(opcao == 2)
         { // ver produtos
 
-            String relatorio = carrinho.getRelat();
+            String relatorio = cliente.getRelatCarrinho();
             Output.showOutput(relatorio);
         }
         if(opcao == 3)
         { // finalizar compra
 
-            float total = carrinho.finalizarCompra();
+            float total = cliente.getTotal();
             Output.relatCompra(total);
             PagamentoFactory facPa = new PagamentoFactory();
             Pagamento pagamento = facPa.criarPagamento(total);
@@ -87,11 +86,14 @@ public class ControladorCliente {
             
             Output.pagamentoCompleto();
             
-            carrinho.comprar();
+            cliente.comprar();
             
             VendaFactory fac = new VendaFactory();
-            Venda venda = fac.criarVenda(carrinho,pagamento);
+            Venda venda = fac.criarVenda(cliente.getCarrinho(),pagamento);
             Output.codigoCompra(venda.getID());
+            
+            cliente.resetCarrinho();
+            
             return -2;
         }
         else
