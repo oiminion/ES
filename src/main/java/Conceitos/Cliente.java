@@ -4,6 +4,8 @@
  */
 package Conceitos;
 
+import Factory.CarrinhoFactory;
+
 /**
  *
  * @author Arthur
@@ -15,7 +17,8 @@ public class Cliente {
     
     protected Cliente()
     {
-        carrinho = new Carrinho();
+        CarrinhoFactory facCarrinho = new CarrinhoFactory();
+        carrinho = facCarrinho.CriarCarrinho();
     }
 
     public static Cliente getInstance()
@@ -54,6 +57,7 @@ public class Cliente {
     
     public void resetCarrinho()
     {
-        carrinho = new Carrinho();
+        CarrinhoFactory facCarrinho = new CarrinhoFactory();
+        carrinho = facCarrinho.CriarCarrinho();
     }
 }
