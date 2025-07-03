@@ -7,8 +7,6 @@ package Persistencia;
 import Catalogo.FuncionariosCatalogo;
 import Factory.FuncionarioFactory;
 import Factory.GerenteFactory;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
