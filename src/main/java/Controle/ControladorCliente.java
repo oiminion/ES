@@ -8,7 +8,6 @@ import Conceitos.Produto;
 import Terminal.Input;
 import Terminal.Output;
 import Catalogo.ProdutosCatalogo;
-import Conceitos.Carrinho;
 import Conceitos.Cliente;
 import Conceitos.Pagamento;
 import Conceitos.Venda;
